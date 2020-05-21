@@ -6,5 +6,5 @@ public abstract class Family {
     abstract int isHappyPercent();
 
     // 食べる処理
-    abstract void eat(String fruit, String[] fruitData);
+    abstract void eat(String fruit, Fruits fruitData);
 }

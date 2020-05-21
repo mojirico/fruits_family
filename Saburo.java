@@ -19,16 +19,16 @@ public class Saburo extends Family {
     }
 
     // 三郎が食べる処理
-    public void eat(String fruit, String[] fruitData) {
+    public void eat(String fruit, Fruits fruitData) {
         // りんご
         if (fruit.equals("apple")) {
-            this.appleAmount += Apple.getAppleAmount(fruitData); // 量
-            this.appleTaste += Apple.getAppleTaste(fruitData); // 味
+            this.appleAmount += fruitData.getAmount(); // 量
+            this.appleTaste += fruitData.getTaste(); // 味
 
             // バナナ
         } else {
-            this.bananaAmount += Banana.getBananaAmount(fruitData); // 量
-            this.bananaTaste += Banana.getBananaTaste(fruitData); // 味
+            this.bananaAmount += fruitData.getAmount(); // 量
+            this.bananaTaste += fruitData.getTaste(); // 味
         }
 
     }

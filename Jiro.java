@@ -16,13 +16,13 @@ public class Jiro extends Family {
     }
 
     // 次郎が食べる処理
-    public void eat(String fruit, String[] fruitData) {
+    public void eat(String fruit, Fruits fruitData) {
         // りんご
         if (fruit.equals("apple")) {
-            String color = Apple.getAppleColor(fruitData);
-            int amount = Apple.getAppleAmount(fruitData);
-            int taste = Apple.getAppleTaste(fruitData);
-            String bland = Apple.getAppleBland(fruitData);
+            String color = fruitData.getColor();
+            int amount = fruitData.getAmount();
+            int taste = fruitData.getTaste();
+            String bland = fruitData.getBland();
 
             // 効果
             int kouka = 1;
@@ -41,9 +41,9 @@ public class Jiro extends Family {
 
             // バナナ
         } else {
-            String color = Banana.getBananaColor(fruitData);
-            int amount = Banana.getBananaAmount(fruitData);
-            int taste = Banana.getBananaTaste(fruitData);
+            String color = fruitData.getColor();
+            int amount = fruitData.getAmount();
+            int taste = fruitData.getTaste();
 
             // 白色のバナナは２倍の効果
             int kouka = 1;

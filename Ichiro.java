@@ -17,14 +17,14 @@ public class Ichiro extends Family {
     }
 
     // 一郎が食べる処理
-    public void eat(String fruit, String[] fruitData) {
+    public void eat(String fruit, Fruits fruitData) {
         // 一郎はりんごを食べない
         if (fruit.equals("apple")) {
             return;
         }
-        String color = Banana.getBananaColor(fruitData);
-        int amount = Banana.getBananaAmount(fruitData);
-        int taste = Banana.getBananaTaste(fruitData);
+        String color = fruitData.getColor();
+        int amount = fruitData.getAmount();
+        int taste = fruitData.getTaste();
         int manpuku = this.hungry;
 
         // 白色のバナナは２倍の効果
