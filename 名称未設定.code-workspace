@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../java"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "Visual Studio Dark"
+	}
+}

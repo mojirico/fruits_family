@@ -2,193 +2,187 @@ import java.util.*;
 
 class Main {
 
-  // 一郎が空腹かどうかを返す
-  private static boolean isIchiroHungry(String[] data) {
-    // 一郎のデータは配列になってて、１つ目が満腹度。満腹度１００％にならないと空腹感はなくならない子。
-    return Integer.parseInt(data[0]) < (2000*1.0);
-  }
+  Ichiro ichiro = new Ichiro();
+  Jiro jiro = new Jiro();
+  Saburo saburo = new Saburo();
 
-  // 次郎が空腹かどうかを返す
-  private static boolean isJiroHungry(int[] data) {
-    // 次郎のデータは配列になってて、１つ目が満腹度。満腹度８０％を超えると空腹感はなくなる子。
-    return data[0] < (2000*0.8);
-  }
+  // 一郎が空腹かどうか
+  // private static boolean isIchiroHungry(String[] data) {
+  // // 一郎のデータは配列になってて、１つ目が満腹度。満腹度１００％にならないと空腹感はなくならない子。
+  // return Integer.parseInt(data[0]) < (2000*1.0);
+  // }
 
-  // 三郎が空腹かどうかを返す
-  private static boolean isSaburoHungry(int[] data) {
-    // 三郎のデータは配列になってて、１つ目がりんごの量、２つ目がりんごの味、３つ目がバナナの量、４つ目がバナナの味
-    return (data[0]*data[1]+data[2]*data[3]) < (2000*0.95);
-  }
+  // // 次郎が空腹かどうかを返す
+  // private static boolean isJiroHungry(int[] data) {
+  // // 次郎のデータは配列になってて、１つ目が満腹度。満腹度８０％を超えると空腹感はなくなる子。
+  // return data[0] < (2000*0.8);
+  // }
 
-  // 一郎の幸福度を返す
-  private static String isIchiroHappyPercent(String[] data) {
-    // 一郎のデータは配列になってて、２つめが幸福度。
-    return data[1];
-  }
+  // // 三郎が空腹かどうかを返す
+  // private static boolean isSaburoHungry(int[] data) {
+  // // 三郎のデータは配列になってて、１つ目がりんごの量、２つ目がりんごの味、３つ目がバナナの量、４つ目がバナナの味
+  // return (data[0] * data[1] + data[2] * data[3]) < (2000 * 0.95);
+  // }
 
-  // 次郎の幸福度を返す
-  private static int isJiroHappyPercent(int[] data) {
-    // 次郎のデータは配列になってて、２つめが幸福度。
-    return data[1];
-  }
+  // // 一郎の幸福度を返す
+  // private static String isIchiroHappyPercent(String[] data) {
+  // // 一郎のデータは配列になってて、２つめが幸福度。
+  // return data[1];
+  // }
 
-  // 三郎の幸福度を返す
-  private static int isSaburoHappyPercent(int[] data) {
-    // 三郎のデータは配列になってて、１つ目がりんごの量、２つ目がりんごの味、３つ目がバナナの量、４つ目がバナナの味
-    // 三郎の幸福度は味重視
-    return (data[1] * 2 + data[3] * 3);
-  }
+  // // 次郎の幸福度を返す
+  // private static int isJiroHappyPercent(int[] data) {
+  // // 次郎のデータは配列になってて、２つめが幸福度。
+  // return data[1];
+  // }
 
-  // 一郎が食べる処理
-  private static void eatIchiro(String[] personData, String fruit, String[] fruitData) {
-    // 一郎はりんごを食べない
-    if (fruit.equals("apple")) {
-      return;
-    }
-    String color = getBananaColor(fruitData);
-    int amount = getBananaAmount(fruitData);
-    int taste = getBananaTaste(fruitData);
-    int manpuku = Integer.parseInt(personData[0]);
+  // // 三郎の幸福度を返す
+  // private static int isSaburoHappyPercent(int[] data) {
+  // // 三郎のデータは配列になってて、１つ目がりんごの量、２つ目がりんごの味、３つ目がバナナの量、４つ目がバナナの味
+  // // 三郎の幸福度は味重視
+  // return (data[1] * 2 + data[3] * 3);
+  // }
 
-    // 白色のバナナは２倍の効果
-    int kouka = 1;
-    if (color.equals("white")) {
-      kouka = 2;
-    }
+  // // 一郎が食べる処理
+  // private static void eatIchiro(String[] personData, String fruit, String[]
+  // fruitData) {
+  // // 一郎はりんごを食べない
+  // if (fruit.equals("apple")) {
+  // return;
+  // }
+  // String color = getBananaColor(fruitData);
+  // int amount = getBananaAmount(fruitData);
+  // int taste = getBananaTaste(fruitData);
+  // int manpuku = Integer.parseInt(personData[0]);
 
-    // 量 * 味　を満腹度に加算する
-    manpuku += amount * taste * kouka;
+  // // 白色のバナナは２倍の効果
+  // int kouka = 1;
+  // if (color.equals("white")) {
+  // kouka = 2;
+  // }
 
-    // 満腹度データを更新
-    personData[0] = String.valueOf(manpuku);
+  // // 量 * 味 を満腹度に加算する
+  // manpuku += amount * taste * kouka;
 
-    // 幸福度データを更新する。一郎は量によって幸福度が上がる
-    personData[1] = String.valueOf(Integer.parseInt(personData[1]) + amount);
+  // // 満腹度データを更新
+  // personData[0] = String.valueOf(manpuku);
 
-  }
+  // // 幸福度データを更新する。一郎は量によって幸福度が上がる
+  // personData[1] = String.valueOf(Integer.parseInt(personData[1]) + amount);
 
-  // 次郎が食べる処理
-  private static void eatJiro(int[] personData, String fruit, String[] fruitData) {
-    // りんご
-    if (fruit.equals("apple")) {
-      String color = getAppleColor(fruitData);
-      int amount = getAppleAmount(fruitData);
-      int taste = getAppleTaste(fruitData);
-      String bland = getAppleBland(fruitData);
+  // }
 
-      // 効果
-      int kouka = 1;
-      if (color.equals("red")) {
-        kouka = 2;
-      }
-      if (bland.equals("ourin")) {
-        kouka *= 2;
-      }
+  // // 次郎が食べる処理
+  // private static void eatJiro(int[] personData, String fruit, String[]
+  // fruitData) {
+  // // りんご
+  // if (fruit.equals("apple")) {
+  // String color = getAppleColor(fruitData);
+  // int amount = getAppleAmount(fruitData);
+  // int taste = getAppleTaste(fruitData);
+  // String bland = getAppleBland(fruitData);
 
-      // 量 * 味 を満腹度に加算する
-      personData[0] += amount * taste;
+  // // 効果
+  // int kouka = 1;
+  // if (color.equals("red")) {
+  // kouka = 2;
+  // }
+  // if (bland.equals("ourin")) {
+  // kouka *= 2;
+  // }
 
-      // 幸福度データを更新する。次郎は味・色・ブランドによって幸福度が上がる
-      personData[1] += taste * kouka;
+  // // 量 * 味 を満腹度に加算する
+  // personData[0] += amount * taste;
 
-    // バナナ
-    } else {
-      String color = getBananaColor(fruitData);
-      int amount = getBananaAmount(fruitData);
-      int taste = getBananaTaste(fruitData);
+  // // 幸福度データを更新する。次郎は味・色・ブランドによって幸福度が上がる
+  // personData[1] += taste * kouka;
 
-      // 白色のバナナは２倍の効果
-      int kouka = 1;
-      if (color.equals("white")) {
-        kouka = 2;
-      }
+  // // バナナ
+  // } else {
+  // String color = getBananaColor(fruitData);
+  // int amount = getBananaAmount(fruitData);
+  // int taste = getBananaTaste(fruitData);
 
-      // 量 * 味 を満腹度に加算する
-      personData[0] += amount * taste * kouka;
+  // // 白色のバナナは２倍の効果
+  // int kouka = 1;
+  // if (color.equals("white")) {
+  // kouka = 2;
+  // }
 
-      // 幸福度データを更新する。次郎はバナナの時は量によって幸福度が上がる
-      personData[1] += amount;
-    }
+  // // 量 * 味 を満腹度に加算する
+  // personData[0] += amount * taste * kouka;
 
-  }
+  // // 幸福度データを更新する。次郎はバナナの時は量によって幸福度が上がる
+  // personData[1] += amount;
+  // }
 
+  // }
 
-  // 三郎が食べる処理
-  private static void eatSaburo(int[] personData, String fruit, String[] fruitData) {
-    // りんご
-    if (fruit.equals("apple")) {
-      personData[0] += getAppleAmount(fruitData); // 量
-      personData[1] += getAppleTaste(fruitData);  // 味
+  // // 三郎が食べる処理
+  // private static void eatSaburo(int[] personData, String fruit, String[]
+  // fruitData) {
+  // // りんご
+  // if (fruit.equals("apple")) {
+  // personData[0] += getAppleAmount(fruitData); // 量
+  // personData[1] += getAppleTaste(fruitData); // 味
 
-      // バナナ
-    } else {
-      personData[2] += getBananaAmount(fruitData);  // 量
-      personData[3] += getBananaTaste(fruitData);   // 味
-    }
+  // // バナナ
+  // } else {
+  // personData[2] += getBananaAmount(fruitData); // 量
+  // personData[3] += getBananaTaste(fruitData); // 味
+  // }
 
-  }
+  // }
 
   // バナナの色を返す関数
-  private static String getBananaColor(String[] data) {
+  public static String getBananaColor(String[] data) {
     return data[0];
   }
 
   // バナナの量を返す関数
-  private static int getBananaAmount(String[] data) {
+  public static int getBananaAmount(String[] data) {
     return Integer.parseInt(data[1]) * Integer.parseInt(data[3]);
   }
 
   // バナナのうまみ具合を返す関数
-  private static int getBananaTaste(String[] data) {
+  public static int getBananaTaste(String[] data) {
     return Integer.parseInt(data[2]);
   }
 
   // りんごの色を返す関数
-  private static String getAppleColor(String[] data) {
+  public static String getAppleColor(String[] data) {
     return data[0];
   }
 
   // りんごの量を返す関数
-  private static int getAppleAmount(String[] data) {
+  public static int getAppleAmount(String[] data) {
     return Integer.parseInt(data[1]);
   }
 
   // りんごのうまみ具合を返す関数
-  private static int getAppleTaste(String[] data) {
+  public static int getAppleTaste(String[] data) {
     return Integer.parseInt(data[2]);
   }
 
   // りんごのブランドを返す関数
-  private static String getAppleBland(String[] data) {
+  public static String getAppleBland(String[] data) {
     return data[3];
   }
 
-
   public static void main(String[] args) {
 
-    String[][] apples = {
-      {"red", "100", "5", "fuji"},
-      {"magenda", "150", "2", "tsugaru"},
-      {"magenda", "80", "8", "ourin"},
-      {"magenda", "100", "9", "tsugaru"},
-      {"red", "200", "4", "fuji"},
-    };
+    String[][] apples = { { "red", "100", "5", "fuji" }, { "magenda", "150", "2", "tsugaru" },
+        { "magenda", "80", "8", "ourin" }, { "magenda", "100", "9", "tsugaru" }, { "red", "200", "4", "fuji" }, };
     int appleCount = apples.length;
 
-    String[][] bananas = {
-      {"yellow", "50", "5", "3"},
-      {"green", "30", "2", "4"},
-      {"green", "40", "8", "4"},
-      {"white", "100", "9", "2"},
-      {"yellow", "45", "4", "4"},
-      {"yellow", "60", "8", "2" },
-    };
+    String[][] bananas = { { "yellow", "50", "5", "3" }, { "green", "30", "2", "4" }, { "green", "40", "8", "4" },
+        { "white", "100", "9", "2" }, { "yellow", "45", "4", "4" }, { "yellow", "60", "8", "2" }, };
     int bananaCount = bananas.length;
 
-    String[] family = {"ichirou", "jirou", "saburou"};
-    String[] ichiroData = { "0", "0"};
-    int[] jiroData = { 0, 0};
-    int[] saburoData = { 0, 0, 0, 0};
+    String[] family = { "ichirou", "jirou", "saburou" };
+    String[] ichiroData = { "0", "0" };
+    int[] jiroData = { 0, 0 };
+    int[] saburoData = { 0, 0, 0, 0 };
 
     Scanner sc = new Scanner(System.in);
 
@@ -231,7 +225,6 @@ class Main {
         System.out.println("");
         continue;
       }
-
 
       int manpukuCount = 0;
       for (int i = 0; i < family.length; i++) {
