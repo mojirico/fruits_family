@@ -1,23 +1,35 @@
-public class Apple {
+public class Apple implements Fruits {
+
+    private String color;
+    private int amount;
+    private int taste;
+    private String bland;
+
+    public Apple(String color, int amount, int taste, String bland) {
+        this.color = color;
+        this.amount = amount;
+        this.taste = taste;
+        this.bland = bland;
+    }
 
     // りんごの色を返す関数
-    public static String getAppleColor(String[] data) {
-        return data[0];
+    public String getColor() {
+        return this.color;
     }
 
     // りんごの量を返す関数
-    public static int getAppleAmount(String[] data) {
-        return Integer.parseInt(data[1]);
+    public int getAmount() {
+        return this.amount;
     }
 
     // りんごのうまみ具合を返す関数
-    public static int getAppleTaste(String[] data) {
-        return Integer.parseInt(data[2]);
+    public int getTaste() {
+        return this.taste;
     }
 
     // りんごのブランドを返す関数
-    public static String getAppleBland(String[] data) {
-        return data[3];
+    public String getBland() {
+        return this.bland;
     }
 
 }
