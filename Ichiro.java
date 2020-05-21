@@ -1,20 +1,23 @@
 
 public class Ichiro extends Family {
 
+    private int hungry = 0;
+    private int happy = 0;
+
     // 一郎が空腹かどうか
-    public boolean isIchiroHungry(String[] data) {
+    public boolean isHungry() {
         // 一郎のデータは配列になってて、１つ目が満腹度。満腹度１００％にならないと空腹感はなくならない子。
-        return Integer.parseInt(data[0]) < (2000 * 1.0);
+        return this.hungry < (2000 * 1.0);
     }
 
     // 一郎の幸福度を返す
-    public String isIchiroHappyPercent(String[] data) {
+    public int isHappyPercent() {
         // 一郎のデータは配列になってて、２つめが幸福度。
-        return data[1];
+        return this.happy;
     }
 
     // 一郎が食べる処理
-    public void eatIchiro(String[] personData, String fruit, String[] fruitData) {
+    public void eat(String fruit, String[] fruitData) {
         // 一郎はりんごを食べない
         if (fruit.equals("apple")) {
             return;
@@ -22,7 +25,7 @@ public class Ichiro extends Family {
         String color = Banana.getBananaColor(fruitData);
         int amount = Banana.getBananaAmount(fruitData);
         int taste = Banana.getBananaTaste(fruitData);
-        int manpuku = Integer.parseInt(personData[0]);
+        int manpuku = this.hungry;
 
         // 白色のバナナは２倍の効果
         int kouka = 1;
@@ -34,10 +37,10 @@ public class Ichiro extends Family {
         manpuku += amount * taste * kouka;
 
         // 満腹度データを更新
-        personData[0] = String.valueOf(manpuku);
+        this.hungry = manpuku;
 
         // 幸福度データを更新する。一郎は量によって幸福度が上がる
-        personData[1] = String.valueOf(Integer.parseInt(personData[1]) + amount);
+        this.happy = this.happy + amount;
 
     }
 }
