@@ -1,4 +1,5 @@
-class Saburo {
+
+public class Saburo extends Family {
 
     // 三郎が空腹かどうかを返す
     public boolean isSaburoHungry(int[] data) {
@@ -17,13 +18,13 @@ class Saburo {
     public void eatSaburo(int[] personData, String fruit, String[] fruitData) {
         // りんご
         if (fruit.equals("apple")) {
-            personData[0] += getAppleAmount(fruitData); // 量
-            personData[1] += getAppleTaste(fruitData); // 味
+            personData[0] += Apple.getAppleAmount(fruitData); // 量
+            personData[1] += Apple.getAppleTaste(fruitData); // 味
 
             // バナナ
         } else {
-            personData[2] += getBananaAmount(fruitData); // 量
-            personData[3] += getBananaTaste(fruitData); // 味
+            personData[2] += Banana.getBananaAmount(fruitData); // 量
+            personData[3] += Banana.getBananaTaste(fruitData); // 味
         }
 
     }

@@ -1,4 +1,5 @@
-class Ichiro {
+
+public class Ichiro extends Family {
 
     // 一郎が空腹かどうか
     public boolean isIchiroHungry(String[] data) {
@@ -18,9 +19,9 @@ class Ichiro {
         if (fruit.equals("apple")) {
             return;
         }
-        String color = getBananaColor(fruitData);
-        int amount = getBananaAmount(fruitData);
-        int taste = getBananaTaste(fruitData);
+        String color = Banana.getBananaColor(fruitData);
+        int amount = Banana.getBananaAmount(fruitData);
+        int taste = Banana.getBananaTaste(fruitData);
         int manpuku = Integer.parseInt(personData[0]);
 
         // 白色のバナナは２倍の効果

@@ -1,4 +1,5 @@
-class Jiro {
+
+public class Jiro extends Family {
 
     // 次郎が空腹かどうかを返す
     public boolean isJiroHungry(int[] data) {
@@ -6,9 +7,9 @@ class Jiro {
         return data[0] < (2000 * 0.8);
     }
 
-    // 一郎の幸福度を返す
-    public String isIchiroHappyPercent(String[] data) {
-        // 一郎のデータは配列になってて、２つめが幸福度。
+    // 次郎の幸福度を返す
+    public int isJiroHappyPercent(int[] data) {
+        // 次郎のデータは配列になってて、２つめが幸福度。
         return data[1];
     }
 
@@ -16,10 +17,10 @@ class Jiro {
     public void eatJiro(int[] personData, String fruit, String[] fruitData) {
         // りんご
         if (fruit.equals("apple")) {
-            String color = getAppleColor(fruitData);
-            int amount = getAppleAmount(fruitData);
-            int taste = getAppleTaste(fruitData);
-            String bland = getAppleBland(fruitData);
+            String color = Apple.getAppleColor(fruitData);
+            int amount = Apple.getAppleAmount(fruitData);
+            int taste = Apple.getAppleTaste(fruitData);
+            String bland = Apple.getAppleBland(fruitData);
 
             // 効果
             int kouka = 1;
@@ -38,9 +39,9 @@ class Jiro {
 
             // バナナ
         } else {
-            String color = getBananaColor(fruitData);
-            int amount = getBananaAmount(fruitData);
-            int taste = getBananaTaste(fruitData);
+            String color = Banana.getBananaColor(fruitData);
+            int amount = Banana.getBananaAmount(fruitData);
+            int taste = Banana.getBananaTaste(fruitData);
 
             // 白色のバナナは２倍の効果
             int kouka = 1;
