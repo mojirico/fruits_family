@@ -1,21 +1,30 @@
 
 public class Jiro extends Family {
+
     private int hungry = 0;
     private int happy = 0;
 
+    public Jiro(int hungry, int happy) {
+        this.hungry = hungry;
+        this.happy = happy;
+    }
+
     // 次郎が空腹かどうかを返す
+    @Override
     public boolean isHungry() {
         // 次郎のデータは配列になってて、１つ目が満腹度。満腹度８０％を超えると空腹感はなくなる子。
         return this.hungry < (2000 * 0.8);
     }
 
     // 次郎の幸福度を返す
+    @Override
     public int isHappyPercent() {
         // 次郎のデータは配列になってて、２つめが幸福度。
         return this.happy;
     }
 
     // 次郎が食べる処理
+    @Override
     public void eat(String fruit, Fruits fruitData) {
         // りんご
         if (fruit.equals("apple")) {

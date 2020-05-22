@@ -4,19 +4,27 @@ public class Ichiro extends Family {
     private int hungry = 0;
     private int happy = 0;
 
+    public Ichiro(int hungry, int happy) {
+        this.hungry = hungry;
+        this.happy = happy;
+    }
+
     // 一郎が空腹かどうか
+    @Override
     public boolean isHungry() {
         // 一郎のデータは配列になってて、１つ目が満腹度。満腹度１００％にならないと空腹感はなくならない子。
         return this.hungry < (2000 * 1.0);
     }
 
     // 一郎の幸福度を返す
+    @Override
     public int isHappyPercent() {
         // 一郎のデータは配列になってて、２つめが幸福度。
         return this.happy;
     }
 
     // 一郎が食べる処理
+    @Override
     public void eat(String fruit, Fruits fruitData) {
         // 一郎はりんごを食べない
         if (fruit.equals("apple")) {
