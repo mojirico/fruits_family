@@ -66,7 +66,12 @@ public class Jiro extends Family {
             // 幸福度データを更新する。次郎はバナナの時は量によって幸福度が上がる
             this.happy += amount;
         }
+    }
 
+    // 二郎は人が食べているのを見ると幸福を感じる
+    public void satisfaction() {
+        this.happy += 1;
+        System.out.println("二郎は人が食べているのを見て幸せを感じた");
     }
 
 }
