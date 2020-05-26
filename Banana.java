@@ -31,8 +31,4 @@ public class Banana implements Fruits {
         return this.value;
     }
 
-    public String getBland() {
-        return "--";
-    }
-
 }

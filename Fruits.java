@@ -6,6 +6,4 @@ interface Fruits {
 
     public int getTaste();
 
-    public String getBland();
-
 }
